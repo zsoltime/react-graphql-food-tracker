@@ -1,0 +1,36 @@
+{
+  "name": "react-food-tracker-backend",
+  "version": "0.1.0",
+  "description": "Backend of React+GraphQL food tracker",
+  "main": "src/index.js",
+  "scripts": {
+    "deploy": "prisma deploy",
+    "dev": "nodemon -e js,graphql -x node --inspect src/index.js",
+    "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",
+    "start": "nodemon -e js,graphql -x node src/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsoltime/react-graphql-food-tracker.git"
+  },
+  "author": "Zsolt Meszaros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zsoltime/react-graphql-food-tracker/issues"
+  },
+  "homepage": "https://github.com/zsoltime/react-graphql-food-tracker#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "graphql": "^14.0.2",
+    "graphql-cli": "^2.17.0",
+    "graphql-yoga": "^1.16.7",
+    "prisma": "^1.20.7",
+    "prisma-binding": "^2.2.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}

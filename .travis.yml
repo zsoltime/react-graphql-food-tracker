@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - lts/*
+env:
+  - TEST_DIR=backend
+  - TEST_DIR=frontend
+cache:
+  directories:
+    - node_modules
+script: cd $TEST_DIR && npm i && npm test
