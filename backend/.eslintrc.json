@@ -21,7 +21,7 @@
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["tests/**", "*.test.js"] }
+      { "devDependencies": ["tests/**", "**/*.test.js"] }
     ],
     "max-len": ["error", 70]
   }
