@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Page /> matches snapshot 1`] = `
+<Pagestyles__StyledPage>
+  <Meta />
+  <Header />
+  <Pagestyles__Content>
+    <ChildComponent />
+  </Pagestyles__Content>
+</Pagestyles__StyledPage>
+`;
