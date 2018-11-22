@@ -1,0 +1,1587 @@
+type AggregateFood {
+  count: Int!
+}
+
+type AggregateGoal {
+  count: Int!
+}
+
+type AggregateLog {
+  count: Int!
+}
+
+type AggregateProfile {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type AggregateWeightLog {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+scalar DateTime
+
+type Food {
+  id: ID!
+  brand: String!
+  calories: Int!
+  carb: Float!
+  ean: Int
+  fat: Float!
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean!
+  name: String!
+  polyol: Float
+  protein: Float!
+  servingSize: Int
+  servingUnit: Unit!
+  sugar: Float
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  verifiedAt: DateTime
+}
+
+type FoodConnection {
+  pageInfo: PageInfo!
+  edges: [FoodEdge]!
+  aggregate: AggregateFood!
+}
+
+input FoodCreateInput {
+  brand: String!
+  calories: Int!
+  carb: Float!
+  ean: Int
+  fat: Float!
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean
+  name: String!
+  polyol: Float
+  protein: Float!
+  servingSize: Int
+  servingUnit: Unit!
+  sugar: Float
+  user: UserCreateOneWithoutFoodsInput!
+  verifiedAt: DateTime
+}
+
+input FoodCreateManyWithoutUserInput {
+  create: [FoodCreateWithoutUserInput!]
+  connect: [FoodWhereUniqueInput!]
+}
+
+input FoodCreateOneInput {
+  create: FoodCreateInput
+  connect: FoodWhereUniqueInput
+}
+
+input FoodCreateWithoutUserInput {
+  brand: String!
+  calories: Int!
+  carb: Float!
+  ean: Int
+  fat: Float!
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean
+  name: String!
+  polyol: Float
+  protein: Float!
+  servingSize: Int
+  servingUnit: Unit!
+  sugar: Float
+  verifiedAt: DateTime
+}
+
+type FoodEdge {
+  node: Food!
+  cursor: String!
+}
+
+enum FoodOrderByInput {
+  id_ASC
+  id_DESC
+  brand_ASC
+  brand_DESC
+  calories_ASC
+  calories_DESC
+  carb_ASC
+  carb_DESC
+  ean_ASC
+  ean_DESC
+  fat_ASC
+  fat_DESC
+  fatMonounsaturated_ASC
+  fatMonounsaturated_DESC
+  fatPolyunsaturated_ASC
+  fatPolyunsaturated_DESC
+  fatSaturated_ASC
+  fatSaturated_DESC
+  fatTrans_ASC
+  fatTrans_DESC
+  fibre_ASC
+  fibre_DESC
+  isVerified_ASC
+  isVerified_DESC
+  name_ASC
+  name_DESC
+  polyol_ASC
+  polyol_DESC
+  protein_ASC
+  protein_DESC
+  servingSize_ASC
+  servingSize_DESC
+  servingUnit_ASC
+  servingUnit_DESC
+  sugar_ASC
+  sugar_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  verifiedAt_ASC
+  verifiedAt_DESC
+}
+
+type FoodPreviousValues {
+  id: ID!
+  brand: String!
+  calories: Int!
+  carb: Float!
+  ean: Int
+  fat: Float!
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean!
+  name: String!
+  polyol: Float
+  protein: Float!
+  servingSize: Int
+  servingUnit: Unit!
+  sugar: Float
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  verifiedAt: DateTime
+}
+
+type FoodSubscriptionPayload {
+  mutation: MutationType!
+  node: Food
+  updatedFields: [String!]
+  previousValues: FoodPreviousValues
+}
+
+input FoodSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FoodWhereInput
+  AND: [FoodSubscriptionWhereInput!]
+  OR: [FoodSubscriptionWhereInput!]
+  NOT: [FoodSubscriptionWhereInput!]
+}
+
+input FoodUpdateDataInput {
+  brand: String
+  calories: Int
+  carb: Float
+  ean: Int
+  fat: Float
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean
+  name: String
+  polyol: Float
+  protein: Float
+  servingSize: Int
+  servingUnit: Unit
+  sugar: Float
+  user: UserUpdateOneRequiredWithoutFoodsInput
+  verifiedAt: DateTime
+}
+
+input FoodUpdateInput {
+  brand: String
+  calories: Int
+  carb: Float
+  ean: Int
+  fat: Float
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean
+  name: String
+  polyol: Float
+  protein: Float
+  servingSize: Int
+  servingUnit: Unit
+  sugar: Float
+  user: UserUpdateOneRequiredWithoutFoodsInput
+  verifiedAt: DateTime
+}
+
+input FoodUpdateManyMutationInput {
+  brand: String
+  calories: Int
+  carb: Float
+  ean: Int
+  fat: Float
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean
+  name: String
+  polyol: Float
+  protein: Float
+  servingSize: Int
+  servingUnit: Unit
+  sugar: Float
+  verifiedAt: DateTime
+}
+
+input FoodUpdateManyWithoutUserInput {
+  create: [FoodCreateWithoutUserInput!]
+  delete: [FoodWhereUniqueInput!]
+  connect: [FoodWhereUniqueInput!]
+  disconnect: [FoodWhereUniqueInput!]
+  update: [FoodUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [FoodUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input FoodUpdateOneRequiredInput {
+  create: FoodCreateInput
+  update: FoodUpdateDataInput
+  upsert: FoodUpsertNestedInput
+  connect: FoodWhereUniqueInput
+}
+
+input FoodUpdateWithoutUserDataInput {
+  brand: String
+  calories: Int
+  carb: Float
+  ean: Int
+  fat: Float
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean
+  name: String
+  polyol: Float
+  protein: Float
+  servingSize: Int
+  servingUnit: Unit
+  sugar: Float
+  verifiedAt: DateTime
+}
+
+input FoodUpdateWithWhereUniqueWithoutUserInput {
+  where: FoodWhereUniqueInput!
+  data: FoodUpdateWithoutUserDataInput!
+}
+
+input FoodUpsertNestedInput {
+  update: FoodUpdateDataInput!
+  create: FoodCreateInput!
+}
+
+input FoodUpsertWithWhereUniqueWithoutUserInput {
+  where: FoodWhereUniqueInput!
+  update: FoodUpdateWithoutUserDataInput!
+  create: FoodCreateWithoutUserInput!
+}
+
+input FoodWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  brand: String
+  brand_not: String
+  brand_in: [String!]
+  brand_not_in: [String!]
+  brand_lt: String
+  brand_lte: String
+  brand_gt: String
+  brand_gte: String
+  brand_contains: String
+  brand_not_contains: String
+  brand_starts_with: String
+  brand_not_starts_with: String
+  brand_ends_with: String
+  brand_not_ends_with: String
+  calories: Int
+  calories_not: Int
+  calories_in: [Int!]
+  calories_not_in: [Int!]
+  calories_lt: Int
+  calories_lte: Int
+  calories_gt: Int
+  calories_gte: Int
+  carb: Float
+  carb_not: Float
+  carb_in: [Float!]
+  carb_not_in: [Float!]
+  carb_lt: Float
+  carb_lte: Float
+  carb_gt: Float
+  carb_gte: Float
+  ean: Int
+  ean_not: Int
+  ean_in: [Int!]
+  ean_not_in: [Int!]
+  ean_lt: Int
+  ean_lte: Int
+  ean_gt: Int
+  ean_gte: Int
+  fat: Float
+  fat_not: Float
+  fat_in: [Float!]
+  fat_not_in: [Float!]
+  fat_lt: Float
+  fat_lte: Float
+  fat_gt: Float
+  fat_gte: Float
+  fatMonounsaturated: Float
+  fatMonounsaturated_not: Float
+  fatMonounsaturated_in: [Float!]
+  fatMonounsaturated_not_in: [Float!]
+  fatMonounsaturated_lt: Float
+  fatMonounsaturated_lte: Float
+  fatMonounsaturated_gt: Float
+  fatMonounsaturated_gte: Float
+  fatPolyunsaturated: Float
+  fatPolyunsaturated_not: Float
+  fatPolyunsaturated_in: [Float!]
+  fatPolyunsaturated_not_in: [Float!]
+  fatPolyunsaturated_lt: Float
+  fatPolyunsaturated_lte: Float
+  fatPolyunsaturated_gt: Float
+  fatPolyunsaturated_gte: Float
+  fatSaturated: Float
+  fatSaturated_not: Float
+  fatSaturated_in: [Float!]
+  fatSaturated_not_in: [Float!]
+  fatSaturated_lt: Float
+  fatSaturated_lte: Float
+  fatSaturated_gt: Float
+  fatSaturated_gte: Float
+  fatTrans: Float
+  fatTrans_not: Float
+  fatTrans_in: [Float!]
+  fatTrans_not_in: [Float!]
+  fatTrans_lt: Float
+  fatTrans_lte: Float
+  fatTrans_gt: Float
+  fatTrans_gte: Float
+  fibre: Float
+  fibre_not: Float
+  fibre_in: [Float!]
+  fibre_not_in: [Float!]
+  fibre_lt: Float
+  fibre_lte: Float
+  fibre_gt: Float
+  fibre_gte: Float
+  isVerified: Boolean
+  isVerified_not: Boolean
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  polyol: Float
+  polyol_not: Float
+  polyol_in: [Float!]
+  polyol_not_in: [Float!]
+  polyol_lt: Float
+  polyol_lte: Float
+  polyol_gt: Float
+  polyol_gte: Float
+  protein: Float
+  protein_not: Float
+  protein_in: [Float!]
+  protein_not_in: [Float!]
+  protein_lt: Float
+  protein_lte: Float
+  protein_gt: Float
+  protein_gte: Float
+  servingSize: Int
+  servingSize_not: Int
+  servingSize_in: [Int!]
+  servingSize_not_in: [Int!]
+  servingSize_lt: Int
+  servingSize_lte: Int
+  servingSize_gt: Int
+  servingSize_gte: Int
+  servingUnit: Unit
+  servingUnit_not: Unit
+  servingUnit_in: [Unit!]
+  servingUnit_not_in: [Unit!]
+  sugar: Float
+  sugar_not: Float
+  sugar_in: [Float!]
+  sugar_not_in: [Float!]
+  sugar_lt: Float
+  sugar_lte: Float
+  sugar_gt: Float
+  sugar_gte: Float
+  user: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  verifiedAt: DateTime
+  verifiedAt_not: DateTime
+  verifiedAt_in: [DateTime!]
+  verifiedAt_not_in: [DateTime!]
+  verifiedAt_lt: DateTime
+  verifiedAt_lte: DateTime
+  verifiedAt_gt: DateTime
+  verifiedAt_gte: DateTime
+  AND: [FoodWhereInput!]
+  OR: [FoodWhereInput!]
+  NOT: [FoodWhereInput!]
+}
+
+input FoodWhereUniqueInput {
+  id: ID
+}
+
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+}
+
+type Goal {
+  id: ID!
+  calories: Int!
+  carb: Float!
+  fat: Float!
+  protein: Float!
+  user: User!
+  weight: Float!
+}
+
+type GoalConnection {
+  pageInfo: PageInfo!
+  edges: [GoalEdge]!
+  aggregate: AggregateGoal!
+}
+
+input GoalCreateInput {
+  calories: Int!
+  carb: Float!
+  fat: Float!
+  protein: Float!
+  user: UserCreateOneInput!
+  weight: Float!
+}
+
+type GoalEdge {
+  node: Goal!
+  cursor: String!
+}
+
+enum GoalOrderByInput {
+  id_ASC
+  id_DESC
+  calories_ASC
+  calories_DESC
+  carb_ASC
+  carb_DESC
+  fat_ASC
+  fat_DESC
+  protein_ASC
+  protein_DESC
+  weight_ASC
+  weight_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type GoalPreviousValues {
+  id: ID!
+  calories: Int!
+  carb: Float!
+  fat: Float!
+  protein: Float!
+  weight: Float!
+}
+
+type GoalSubscriptionPayload {
+  mutation: MutationType!
+  node: Goal
+  updatedFields: [String!]
+  previousValues: GoalPreviousValues
+}
+
+input GoalSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GoalWhereInput
+  AND: [GoalSubscriptionWhereInput!]
+  OR: [GoalSubscriptionWhereInput!]
+  NOT: [GoalSubscriptionWhereInput!]
+}
+
+input GoalUpdateInput {
+  calories: Int
+  carb: Float
+  fat: Float
+  protein: Float
+  user: UserUpdateOneRequiredInput
+  weight: Float
+}
+
+input GoalUpdateManyMutationInput {
+  calories: Int
+  carb: Float
+  fat: Float
+  protein: Float
+  weight: Float
+}
+
+input GoalWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  calories: Int
+  calories_not: Int
+  calories_in: [Int!]
+  calories_not_in: [Int!]
+  calories_lt: Int
+  calories_lte: Int
+  calories_gt: Int
+  calories_gte: Int
+  carb: Float
+  carb_not: Float
+  carb_in: [Float!]
+  carb_not_in: [Float!]
+  carb_lt: Float
+  carb_lte: Float
+  carb_gt: Float
+  carb_gte: Float
+  fat: Float
+  fat_not: Float
+  fat_in: [Float!]
+  fat_not_in: [Float!]
+  fat_lt: Float
+  fat_lte: Float
+  fat_gt: Float
+  fat_gte: Float
+  protein: Float
+  protein_not: Float
+  protein_in: [Float!]
+  protein_not_in: [Float!]
+  protein_lt: Float
+  protein_lte: Float
+  protein_gt: Float
+  protein_gte: Float
+  user: UserWhereInput
+  weight: Float
+  weight_not: Float
+  weight_in: [Float!]
+  weight_not_in: [Float!]
+  weight_lt: Float
+  weight_lte: Float
+  weight_gt: Float
+  weight_gte: Float
+  AND: [GoalWhereInput!]
+  OR: [GoalWhereInput!]
+  NOT: [GoalWhereInput!]
+}
+
+input GoalWhereUniqueInput {
+  id: ID
+}
+
+type Log {
+  id: ID!
+  food: Food!
+  servingSize: Float!
+  servingUnit: Unit!
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type LogConnection {
+  pageInfo: PageInfo!
+  edges: [LogEdge]!
+  aggregate: AggregateLog!
+}
+
+input LogCreateInput {
+  food: FoodCreateOneInput!
+  servingSize: Float!
+  servingUnit: Unit!
+  user: UserCreateOneWithoutLogsInput!
+}
+
+input LogCreateManyWithoutUserInput {
+  create: [LogCreateWithoutUserInput!]
+  connect: [LogWhereUniqueInput!]
+}
+
+input LogCreateWithoutUserInput {
+  food: FoodCreateOneInput!
+  servingSize: Float!
+  servingUnit: Unit!
+}
+
+type LogEdge {
+  node: Log!
+  cursor: String!
+}
+
+enum LogOrderByInput {
+  id_ASC
+  id_DESC
+  servingSize_ASC
+  servingSize_DESC
+  servingUnit_ASC
+  servingUnit_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type LogPreviousValues {
+  id: ID!
+  servingSize: Float!
+  servingUnit: Unit!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type LogSubscriptionPayload {
+  mutation: MutationType!
+  node: Log
+  updatedFields: [String!]
+  previousValues: LogPreviousValues
+}
+
+input LogSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: LogWhereInput
+  AND: [LogSubscriptionWhereInput!]
+  OR: [LogSubscriptionWhereInput!]
+  NOT: [LogSubscriptionWhereInput!]
+}
+
+input LogUpdateInput {
+  food: FoodUpdateOneRequiredInput
+  servingSize: Float
+  servingUnit: Unit
+  user: UserUpdateOneRequiredWithoutLogsInput
+}
+
+input LogUpdateManyMutationInput {
+  servingSize: Float
+  servingUnit: Unit
+}
+
+input LogUpdateManyWithoutUserInput {
+  create: [LogCreateWithoutUserInput!]
+  delete: [LogWhereUniqueInput!]
+  connect: [LogWhereUniqueInput!]
+  disconnect: [LogWhereUniqueInput!]
+  update: [LogUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [LogUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input LogUpdateWithoutUserDataInput {
+  food: FoodUpdateOneRequiredInput
+  servingSize: Float
+  servingUnit: Unit
+}
+
+input LogUpdateWithWhereUniqueWithoutUserInput {
+  where: LogWhereUniqueInput!
+  data: LogUpdateWithoutUserDataInput!
+}
+
+input LogUpsertWithWhereUniqueWithoutUserInput {
+  where: LogWhereUniqueInput!
+  update: LogUpdateWithoutUserDataInput!
+  create: LogCreateWithoutUserInput!
+}
+
+input LogWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  food: FoodWhereInput
+  servingSize: Float
+  servingSize_not: Float
+  servingSize_in: [Float!]
+  servingSize_not_in: [Float!]
+  servingSize_lt: Float
+  servingSize_lte: Float
+  servingSize_gt: Float
+  servingSize_gte: Float
+  servingUnit: Unit
+  servingUnit_not: Unit
+  servingUnit_in: [Unit!]
+  servingUnit_not_in: [Unit!]
+  user: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [LogWhereInput!]
+  OR: [LogWhereInput!]
+  NOT: [LogWhereInput!]
+}
+
+input LogWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type Mutation {
+  createFood(data: FoodCreateInput!): Food!
+  updateFood(data: FoodUpdateInput!, where: FoodWhereUniqueInput!): Food
+  updateManyFoods(data: FoodUpdateManyMutationInput!, where: FoodWhereInput): BatchPayload!
+  upsertFood(where: FoodWhereUniqueInput!, create: FoodCreateInput!, update: FoodUpdateInput!): Food!
+  deleteFood(where: FoodWhereUniqueInput!): Food
+  deleteManyFoods(where: FoodWhereInput): BatchPayload!
+  createGoal(data: GoalCreateInput!): Goal!
+  updateGoal(data: GoalUpdateInput!, where: GoalWhereUniqueInput!): Goal
+  updateManyGoals(data: GoalUpdateManyMutationInput!, where: GoalWhereInput): BatchPayload!
+  upsertGoal(where: GoalWhereUniqueInput!, create: GoalCreateInput!, update: GoalUpdateInput!): Goal!
+  deleteGoal(where: GoalWhereUniqueInput!): Goal
+  deleteManyGoals(where: GoalWhereInput): BatchPayload!
+  createLog(data: LogCreateInput!): Log!
+  updateLog(data: LogUpdateInput!, where: LogWhereUniqueInput!): Log
+  updateManyLogs(data: LogUpdateManyMutationInput!, where: LogWhereInput): BatchPayload!
+  upsertLog(where: LogWhereUniqueInput!, create: LogCreateInput!, update: LogUpdateInput!): Log!
+  deleteLog(where: LogWhereUniqueInput!): Log
+  deleteManyLogs(where: LogWhereInput): BatchPayload!
+  createProfile(data: ProfileCreateInput!): Profile!
+  updateProfile(data: ProfileUpdateInput!, where: ProfileWhereUniqueInput!): Profile
+  updateManyProfiles(data: ProfileUpdateManyMutationInput!, where: ProfileWhereInput): BatchPayload!
+  upsertProfile(where: ProfileWhereUniqueInput!, create: ProfileCreateInput!, update: ProfileUpdateInput!): Profile!
+  deleteProfile(where: ProfileWhereUniqueInput!): Profile
+  deleteManyProfiles(where: ProfileWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  createWeightLog(data: WeightLogCreateInput!): WeightLog!
+  updateWeightLog(data: WeightLogUpdateInput!, where: WeightLogWhereUniqueInput!): WeightLog
+  updateManyWeightLogs(data: WeightLogUpdateManyMutationInput!, where: WeightLogWhereInput): BatchPayload!
+  upsertWeightLog(where: WeightLogWhereUniqueInput!, create: WeightLogCreateInput!, update: WeightLogUpdateInput!): WeightLog!
+  deleteWeightLog(where: WeightLogWhereUniqueInput!): WeightLog
+  deleteManyWeightLogs(where: WeightLogWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Profile {
+  id: ID!
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+  user: User!
+}
+
+type ProfileConnection {
+  pageInfo: PageInfo!
+  edges: [ProfileEdge]!
+  aggregate: AggregateProfile!
+}
+
+input ProfileCreateInput {
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+  user: UserCreateOneWithoutProfileInput!
+}
+
+input ProfileCreateOneWithoutUserInput {
+  create: ProfileCreateWithoutUserInput
+  connect: ProfileWhereUniqueInput
+}
+
+input ProfileCreateWithoutUserInput {
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+}
+
+type ProfileEdge {
+  node: Profile!
+  cursor: String!
+}
+
+enum ProfileOrderByInput {
+  id_ASC
+  id_DESC
+  dateOfBirth_ASC
+  dateOfBirth_DESC
+  gender_ASC
+  gender_DESC
+  height_ASC
+  height_DESC
+  location_ASC
+  location_DESC
+  name_ASC
+  name_DESC
+  photo_ASC
+  photo_DESC
+  timeZone_ASC
+  timeZone_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ProfilePreviousValues {
+  id: ID!
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+}
+
+type ProfileSubscriptionPayload {
+  mutation: MutationType!
+  node: Profile
+  updatedFields: [String!]
+  previousValues: ProfilePreviousValues
+}
+
+input ProfileSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProfileWhereInput
+  AND: [ProfileSubscriptionWhereInput!]
+  OR: [ProfileSubscriptionWhereInput!]
+  NOT: [ProfileSubscriptionWhereInput!]
+}
+
+input ProfileUpdateInput {
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+  user: UserUpdateOneRequiredWithoutProfileInput
+}
+
+input ProfileUpdateManyMutationInput {
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+}
+
+input ProfileUpdateOneWithoutUserInput {
+  create: ProfileCreateWithoutUserInput
+  update: ProfileUpdateWithoutUserDataInput
+  upsert: ProfileUpsertWithoutUserInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ProfileWhereUniqueInput
+}
+
+input ProfileUpdateWithoutUserDataInput {
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+}
+
+input ProfileUpsertWithoutUserInput {
+  update: ProfileUpdateWithoutUserDataInput!
+  create: ProfileCreateWithoutUserInput!
+}
+
+input ProfileWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  dateOfBirth: DateTime
+  dateOfBirth_not: DateTime
+  dateOfBirth_in: [DateTime!]
+  dateOfBirth_not_in: [DateTime!]
+  dateOfBirth_lt: DateTime
+  dateOfBirth_lte: DateTime
+  dateOfBirth_gt: DateTime
+  dateOfBirth_gte: DateTime
+  gender: Gender
+  gender_not: Gender
+  gender_in: [Gender!]
+  gender_not_in: [Gender!]
+  height: Int
+  height_not: Int
+  height_in: [Int!]
+  height_not_in: [Int!]
+  height_lt: Int
+  height_lte: Int
+  height_gt: Int
+  height_gte: Int
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  photo: String
+  photo_not: String
+  photo_in: [String!]
+  photo_not_in: [String!]
+  photo_lt: String
+  photo_lte: String
+  photo_gt: String
+  photo_gte: String
+  photo_contains: String
+  photo_not_contains: String
+  photo_starts_with: String
+  photo_not_starts_with: String
+  photo_ends_with: String
+  photo_not_ends_with: String
+  timeZone: String
+  timeZone_not: String
+  timeZone_in: [String!]
+  timeZone_not_in: [String!]
+  timeZone_lt: String
+  timeZone_lte: String
+  timeZone_gt: String
+  timeZone_gte: String
+  timeZone_contains: String
+  timeZone_not_contains: String
+  timeZone_starts_with: String
+  timeZone_not_starts_with: String
+  timeZone_ends_with: String
+  timeZone_not_ends_with: String
+  user: UserWhereInput
+  AND: [ProfileWhereInput!]
+  OR: [ProfileWhereInput!]
+  NOT: [ProfileWhereInput!]
+}
+
+input ProfileWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  food(where: FoodWhereUniqueInput!): Food
+  foods(where: FoodWhereInput, orderBy: FoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Food]!
+  foodsConnection(where: FoodWhereInput, orderBy: FoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FoodConnection!
+  goal(where: GoalWhereUniqueInput!): Goal
+  goals(where: GoalWhereInput, orderBy: GoalOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Goal]!
+  goalsConnection(where: GoalWhereInput, orderBy: GoalOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GoalConnection!
+  log(where: LogWhereUniqueInput!): Log
+  logs(where: LogWhereInput, orderBy: LogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Log]!
+  logsConnection(where: LogWhereInput, orderBy: LogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LogConnection!
+  profile(where: ProfileWhereUniqueInput!): Profile
+  profiles(where: ProfileWhereInput, orderBy: ProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Profile]!
+  profilesConnection(where: ProfileWhereInput, orderBy: ProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProfileConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  weightLog(where: WeightLogWhereUniqueInput!): WeightLog
+  weightLogs(where: WeightLogWhereInput, orderBy: WeightLogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeightLog]!
+  weightLogsConnection(where: WeightLogWhereInput, orderBy: WeightLogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WeightLogConnection!
+  node(id: ID!): Node
+}
+
+type Subscription {
+  food(where: FoodSubscriptionWhereInput): FoodSubscriptionPayload
+  goal(where: GoalSubscriptionWhereInput): GoalSubscriptionPayload
+  log(where: LogSubscriptionWhereInput): LogSubscriptionPayload
+  profile(where: ProfileSubscriptionWhereInput): ProfileSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  weightLog(where: WeightLogSubscriptionWhereInput): WeightLogSubscriptionPayload
+}
+
+enum Unit {
+  CUP
+  G
+  KG
+  L
+  LB
+  MG
+  ML
+  PT
+  TBSP
+  TSP
+}
+
+type User {
+  id: ID!
+  email: String!
+  foods(where: FoodWhereInput, orderBy: FoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Food!]
+  logs(where: LogWhereInput, orderBy: LogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Log!]
+  password: String!
+  profile: Profile
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  email: String!
+  foods: FoodCreateManyWithoutUserInput
+  logs: LogCreateManyWithoutUserInput
+  password: String!
+  profile: ProfileCreateOneWithoutUserInput
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutFoodsInput {
+  create: UserCreateWithoutFoodsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutLogsInput {
+  create: UserCreateWithoutLogsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutProfileInput {
+  create: UserCreateWithoutProfileInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutFoodsInput {
+  email: String!
+  logs: LogCreateManyWithoutUserInput
+  password: String!
+  profile: ProfileCreateOneWithoutUserInput
+}
+
+input UserCreateWithoutLogsInput {
+  email: String!
+  foods: FoodCreateManyWithoutUserInput
+  password: String!
+  profile: ProfileCreateOneWithoutUserInput
+}
+
+input UserCreateWithoutProfileInput {
+  email: String!
+  foods: FoodCreateManyWithoutUserInput
+  logs: LogCreateManyWithoutUserInput
+  password: String!
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  email: String!
+  password: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateDataInput {
+  email: String
+  foods: FoodUpdateManyWithoutUserInput
+  logs: LogUpdateManyWithoutUserInput
+  password: String
+  profile: ProfileUpdateOneWithoutUserInput
+}
+
+input UserUpdateInput {
+  email: String
+  foods: FoodUpdateManyWithoutUserInput
+  logs: LogUpdateManyWithoutUserInput
+  password: String
+  profile: ProfileUpdateOneWithoutUserInput
+}
+
+input UserUpdateManyMutationInput {
+  email: String
+  password: String
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutFoodsInput {
+  create: UserCreateWithoutFoodsInput
+  update: UserUpdateWithoutFoodsDataInput
+  upsert: UserUpsertWithoutFoodsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutLogsInput {
+  create: UserCreateWithoutLogsInput
+  update: UserUpdateWithoutLogsDataInput
+  upsert: UserUpsertWithoutLogsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutProfileInput {
+  create: UserCreateWithoutProfileInput
+  update: UserUpdateWithoutProfileDataInput
+  upsert: UserUpsertWithoutProfileInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutFoodsDataInput {
+  email: String
+  logs: LogUpdateManyWithoutUserInput
+  password: String
+  profile: ProfileUpdateOneWithoutUserInput
+}
+
+input UserUpdateWithoutLogsDataInput {
+  email: String
+  foods: FoodUpdateManyWithoutUserInput
+  password: String
+  profile: ProfileUpdateOneWithoutUserInput
+}
+
+input UserUpdateWithoutProfileDataInput {
+  email: String
+  foods: FoodUpdateManyWithoutUserInput
+  logs: LogUpdateManyWithoutUserInput
+  password: String
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserUpsertWithoutFoodsInput {
+  update: UserUpdateWithoutFoodsDataInput!
+  create: UserCreateWithoutFoodsInput!
+}
+
+input UserUpsertWithoutLogsInput {
+  update: UserUpdateWithoutLogsDataInput!
+  create: UserCreateWithoutLogsInput!
+}
+
+input UserUpsertWithoutProfileInput {
+  update: UserUpdateWithoutProfileDataInput!
+  create: UserCreateWithoutProfileInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  foods_every: FoodWhereInput
+  foods_some: FoodWhereInput
+  foods_none: FoodWhereInput
+  logs_every: LogWhereInput
+  logs_some: LogWhereInput
+  logs_none: LogWhereInput
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  profile: ProfileWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
+}
+
+type WeightLog {
+  id: ID!
+  user: User!
+  weight: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WeightLogConnection {
+  pageInfo: PageInfo!
+  edges: [WeightLogEdge]!
+  aggregate: AggregateWeightLog!
+}
+
+input WeightLogCreateInput {
+  user: UserCreateOneInput!
+  weight: Float!
+}
+
+type WeightLogEdge {
+  node: WeightLog!
+  cursor: String!
+}
+
+enum WeightLogOrderByInput {
+  id_ASC
+  id_DESC
+  weight_ASC
+  weight_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type WeightLogPreviousValues {
+  id: ID!
+  weight: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WeightLogSubscriptionPayload {
+  mutation: MutationType!
+  node: WeightLog
+  updatedFields: [String!]
+  previousValues: WeightLogPreviousValues
+}
+
+input WeightLogSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: WeightLogWhereInput
+  AND: [WeightLogSubscriptionWhereInput!]
+  OR: [WeightLogSubscriptionWhereInput!]
+  NOT: [WeightLogSubscriptionWhereInput!]
+}
+
+input WeightLogUpdateInput {
+  user: UserUpdateOneRequiredInput
+  weight: Float
+}
+
+input WeightLogUpdateManyMutationInput {
+  weight: Float
+}
+
+input WeightLogWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  user: UserWhereInput
+  weight: Float
+  weight_not: Float
+  weight_in: [Float!]
+  weight_not_in: [Float!]
+  weight_lt: Float
+  weight_lte: Float
+  weight_gt: Float
+  weight_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [WeightLogWhereInput!]
+  OR: [WeightLogWhereInput!]
+  NOT: [WeightLogWhereInput!]
+}
+
+input WeightLogWhereUniqueInput {
+  id: ID
+}
