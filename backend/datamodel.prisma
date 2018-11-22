@@ -1,0 +1,94 @@
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+}
+
+enum Unit {
+  CUP
+  G
+  KG
+  L
+  LB
+  MG
+  ML
+  PT
+  TBSP
+  TSP
+}
+
+type Food {
+  id: ID! @unique
+  brand: String!
+  calories: Int!
+  carb: Float!
+  ean: Int
+  fat: Float!
+  fatMonounsaturated: Float
+  fatPolyunsaturated: Float
+  fatSaturated: Float
+  fatTrans: Float
+  fibre: Float
+  isVerified: Boolean! @default(value: "false")
+  name: String!
+  polyol: Float
+  protein: Float!
+  servingSize: Int
+  servingUnit: Unit!
+  sugar: Float
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  verifiedAt: DateTime
+}
+
+type Goal {
+  id: ID! @unique
+  calories: Int!
+  carb: Float!
+  fat: Float!
+  protein: Float!
+  user: User!
+  weight: Float!
+}
+
+type Log {
+  id: ID! @unique
+  food: Food!
+  servingSize: Float!
+  servingUnit: Unit!
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Profile {
+  id: ID! @unique
+  dateOfBirth: DateTime
+  gender: Gender
+  height: Int
+  location: String
+  name: String
+  photo: String
+  timeZone: String
+  user: User!
+}
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  foods: [Food!]!
+  logs: [Log!]!
+  password: String!
+  profile: Profile
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WeightLog {
+  id: ID! @unique
+  user: User!
+  weight: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
