@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav /> matches snapshot 1`] = `
+<Navstyles__NavStyles>
+  <li>
+    <Link
+      href="/dashboard"
+    >
+      <a>
+        Dashboard
+      </a>
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/track"
+    >
+      <a>
+        Diary
+      </a>
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/foods"
+    >
+      <a>
+        Foods
+      </a>
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/account"
+    >
+      <a>
+        Account
+      </a>
+    </Link>
+  </li>
+</Navstyles__NavStyles>
+`;

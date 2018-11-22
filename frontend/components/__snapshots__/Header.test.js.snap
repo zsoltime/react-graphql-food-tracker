@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> matches snapshot 1`] = `
+<Headerstyles__StyledHeader>
+  <nav
+    className="navbar"
+  >
+    <Headerstyles__Logo>
+      <Link
+        href="/"
+      >
+        <a>
+          FoodTracker
+        </a>
+      </Link>
+    </Headerstyles__Logo>
+    <Nav />
+  </nav>
+</Headerstyles__StyledHeader>
+`;
