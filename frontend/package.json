@@ -1,0 +1,50 @@
+{
+  "name": "react-food-tracker-frontend",
+  "version": "0.1.0",
+  "description": "Frontend of React+GraphQL food tracker",
+  "main": "index.js",
+  "scripts": {
+    "build": "next build",
+    "dev": "next -p 5555",
+    "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",
+    "start": "next start",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsoltime/react-graphql-food-tracker.git"
+  },
+  "author": "Zsolt Meszaros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zsoltime/react-graphql-food-tracker/issues"
+  },
+  "homepage": "https://github.com/zsoltime/react-graphql-food-tracker#readme",
+  "dependencies": {
+    "apollo-client": "^2.4.7",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-styled-components": "^1.8.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "next": "^7.0.2",
+    "next-with-apollo": "^3.3.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-apollo": "^2.3.1",
+    "react-dom": "^16.6.3",
+    "styled-components": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.6.0",
+    "jest-transform-graphql": "^2.1.0"
+  }
+}
