@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = {};
+const signUp = require('./user/signUp');
+
+module.exports = {
+  signUp,
+};
