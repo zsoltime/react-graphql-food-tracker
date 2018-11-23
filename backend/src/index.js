@@ -2,7 +2,13 @@
 
 require('dotenv').config();
 
+const cookieParser = require('cookie-parser');
+
+const addUserID = require('./server/middlewares/addUserID');
 const server = require('./server')();
+
+server.express.use(cookieParser());
+server.express.use(addUserID);
 
 server.start(
   {
