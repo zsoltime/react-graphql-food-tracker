@@ -901,6 +901,12 @@ type PageInfo {
   endCursor: String
 }
 
+enum Permission {
+  ADMIN
+  PRO_USER
+  USER
+}
+
 type Profile {
   id: ID!
   dateOfBirth: DateTime
@@ -1198,6 +1204,7 @@ type User {
   foods(where: FoodWhereInput, orderBy: FoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Food!]
   logs(where: LogWhereInput, orderBy: LogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Log!]
   password: String!
+  permissions: [Permission!]!
   profile: Profile
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1214,6 +1221,7 @@ input UserCreateInput {
   foods: FoodCreateManyWithoutUserInput
   logs: LogCreateManyWithoutUserInput
   password: String!
+  permissions: UserCreatepermissionsInput
   profile: ProfileCreateOneWithoutUserInput
 }
 
@@ -1237,10 +1245,15 @@ input UserCreateOneWithoutProfileInput {
   connect: UserWhereUniqueInput
 }
 
+input UserCreatepermissionsInput {
+  set: [Permission!]
+}
+
 input UserCreateWithoutFoodsInput {
   email: String!
   logs: LogCreateManyWithoutUserInput
   password: String!
+  permissions: UserCreatepermissionsInput
   profile: ProfileCreateOneWithoutUserInput
 }
 
@@ -1248,6 +1261,7 @@ input UserCreateWithoutLogsInput {
   email: String!
   foods: FoodCreateManyWithoutUserInput
   password: String!
+  permissions: UserCreatepermissionsInput
   profile: ProfileCreateOneWithoutUserInput
 }
 
@@ -1256,6 +1270,7 @@ input UserCreateWithoutProfileInput {
   foods: FoodCreateManyWithoutUserInput
   logs: LogCreateManyWithoutUserInput
   password: String!
+  permissions: UserCreatepermissionsInput
 }
 
 type UserEdge {
@@ -1280,6 +1295,7 @@ type UserPreviousValues {
   id: ID!
   email: String!
   password: String!
+  permissions: [Permission!]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -1307,6 +1323,7 @@ input UserUpdateDataInput {
   foods: FoodUpdateManyWithoutUserInput
   logs: LogUpdateManyWithoutUserInput
   password: String
+  permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
 
@@ -1315,12 +1332,14 @@ input UserUpdateInput {
   foods: FoodUpdateManyWithoutUserInput
   logs: LogUpdateManyWithoutUserInput
   password: String
+  permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
 
 input UserUpdateManyMutationInput {
   email: String
   password: String
+  permissions: UserUpdatepermissionsInput
 }
 
 input UserUpdateOneRequiredInput {
@@ -1351,10 +1370,15 @@ input UserUpdateOneRequiredWithoutProfileInput {
   connect: UserWhereUniqueInput
 }
 
+input UserUpdatepermissionsInput {
+  set: [Permission!]
+}
+
 input UserUpdateWithoutFoodsDataInput {
   email: String
   logs: LogUpdateManyWithoutUserInput
   password: String
+  permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
 
@@ -1362,6 +1386,7 @@ input UserUpdateWithoutLogsDataInput {
   email: String
   foods: FoodUpdateManyWithoutUserInput
   password: String
+  permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
 
@@ -1370,6 +1395,7 @@ input UserUpdateWithoutProfileDataInput {
   foods: FoodUpdateManyWithoutUserInput
   logs: LogUpdateManyWithoutUserInput
   password: String
+  permissions: UserUpdatepermissionsInput
 }
 
 input UserUpsertNestedInput {

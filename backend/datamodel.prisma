@@ -4,6 +4,12 @@ enum Gender {
   OTHER
 }
 
+enum Permission {
+  ADMIN
+  PRO_USER
+  USER
+}
+
 enum Unit {
   CUP
   G
@@ -77,9 +83,10 @@ type Profile {
 type User {
   id: ID! @unique
   email: String! @unique
-  foods: [Food!]!
-  logs: [Log!]!
+  foods: [Food]!
+  logs: [Log]!
   password: String!
+  permissions: [Permission]!
   profile: Profile
   createdAt: DateTime!
   updatedAt: DateTime!
