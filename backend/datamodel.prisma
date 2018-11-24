@@ -86,6 +86,7 @@ type User {
   foods: [Food]!
   logs: [Log]!
   password: String!
+  pendingEmail: String
   permissions: [Permission]!
   profile: Profile
   createdAt: DateTime!

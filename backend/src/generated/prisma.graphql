@@ -1204,6 +1204,7 @@ type User {
   foods(where: FoodWhereInput, orderBy: FoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Food!]
   logs(where: LogWhereInput, orderBy: LogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Log!]
   password: String!
+  pendingEmail: String
   permissions: [Permission!]!
   profile: Profile
   createdAt: DateTime!
@@ -1221,6 +1222,7 @@ input UserCreateInput {
   foods: FoodCreateManyWithoutUserInput
   logs: LogCreateManyWithoutUserInput
   password: String!
+  pendingEmail: String
   permissions: UserCreatepermissionsInput
   profile: ProfileCreateOneWithoutUserInput
 }
@@ -1253,6 +1255,7 @@ input UserCreateWithoutFoodsInput {
   email: String!
   logs: LogCreateManyWithoutUserInput
   password: String!
+  pendingEmail: String
   permissions: UserCreatepermissionsInput
   profile: ProfileCreateOneWithoutUserInput
 }
@@ -1261,6 +1264,7 @@ input UserCreateWithoutLogsInput {
   email: String!
   foods: FoodCreateManyWithoutUserInput
   password: String!
+  pendingEmail: String
   permissions: UserCreatepermissionsInput
   profile: ProfileCreateOneWithoutUserInput
 }
@@ -1270,6 +1274,7 @@ input UserCreateWithoutProfileInput {
   foods: FoodCreateManyWithoutUserInput
   logs: LogCreateManyWithoutUserInput
   password: String!
+  pendingEmail: String
   permissions: UserCreatepermissionsInput
 }
 
@@ -1285,6 +1290,8 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  pendingEmail_ASC
+  pendingEmail_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -1295,6 +1302,7 @@ type UserPreviousValues {
   id: ID!
   email: String!
   password: String!
+  pendingEmail: String
   permissions: [Permission!]!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1323,6 +1331,7 @@ input UserUpdateDataInput {
   foods: FoodUpdateManyWithoutUserInput
   logs: LogUpdateManyWithoutUserInput
   password: String
+  pendingEmail: String
   permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
@@ -1332,6 +1341,7 @@ input UserUpdateInput {
   foods: FoodUpdateManyWithoutUserInput
   logs: LogUpdateManyWithoutUserInput
   password: String
+  pendingEmail: String
   permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
@@ -1339,6 +1349,7 @@ input UserUpdateInput {
 input UserUpdateManyMutationInput {
   email: String
   password: String
+  pendingEmail: String
   permissions: UserUpdatepermissionsInput
 }
 
@@ -1378,6 +1389,7 @@ input UserUpdateWithoutFoodsDataInput {
   email: String
   logs: LogUpdateManyWithoutUserInput
   password: String
+  pendingEmail: String
   permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
@@ -1386,6 +1398,7 @@ input UserUpdateWithoutLogsDataInput {
   email: String
   foods: FoodUpdateManyWithoutUserInput
   password: String
+  pendingEmail: String
   permissions: UserUpdatepermissionsInput
   profile: ProfileUpdateOneWithoutUserInput
 }
@@ -1395,6 +1408,7 @@ input UserUpdateWithoutProfileDataInput {
   foods: FoodUpdateManyWithoutUserInput
   logs: LogUpdateManyWithoutUserInput
   password: String
+  pendingEmail: String
   permissions: UserUpdatepermissionsInput
 }
 
@@ -1467,6 +1481,20 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  pendingEmail: String
+  pendingEmail_not: String
+  pendingEmail_in: [String!]
+  pendingEmail_not_in: [String!]
+  pendingEmail_lt: String
+  pendingEmail_lte: String
+  pendingEmail_gt: String
+  pendingEmail_gte: String
+  pendingEmail_contains: String
+  pendingEmail_not_contains: String
+  pendingEmail_starts_with: String
+  pendingEmail_not_starts_with: String
+  pendingEmail_ends_with: String
+  pendingEmail_not_ends_with: String
   profile: ProfileWhereInput
   createdAt: DateTime
   createdAt_not: DateTime

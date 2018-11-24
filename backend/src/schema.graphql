@@ -8,6 +8,7 @@ type Mutation {
   signIn(email: String!, password: String!): User!
   signOut: Message!
   signUp(email: String!, password: String!): User!
+  updateEmail(email: String!): User!
 }
 
 type Query {
