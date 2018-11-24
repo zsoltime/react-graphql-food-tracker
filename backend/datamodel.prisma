@@ -89,6 +89,8 @@ type User {
   pendingEmail: String
   permissions: [Permission]!
   profile: Profile
+  token: String
+  tokenExpiry: Float
   createdAt: DateTime!
   updatedAt: DateTime!
 }
