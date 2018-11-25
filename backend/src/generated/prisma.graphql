@@ -915,7 +915,7 @@ type Profile {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
   user: User!
 }
 
@@ -932,7 +932,7 @@ input ProfileCreateInput {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
   user: UserCreateOneWithoutProfileInput!
 }
 
@@ -948,7 +948,7 @@ input ProfileCreateWithoutUserInput {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
 }
 
 type ProfileEdge {
@@ -971,8 +971,8 @@ enum ProfileOrderByInput {
   name_DESC
   photo_ASC
   photo_DESC
-  timeZone_ASC
-  timeZone_DESC
+  timezone_ASC
+  timezone_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -987,7 +987,7 @@ type ProfilePreviousValues {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
 }
 
 type ProfileSubscriptionPayload {
@@ -1015,7 +1015,7 @@ input ProfileUpdateInput {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
   user: UserUpdateOneRequiredWithoutProfileInput
 }
 
@@ -1026,7 +1026,7 @@ input ProfileUpdateManyMutationInput {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
 }
 
 input ProfileUpdateOneWithoutUserInput {
@@ -1045,7 +1045,7 @@ input ProfileUpdateWithoutUserDataInput {
   location: String
   name: String
   photo: String
-  timeZone: String
+  timezone: String
 }
 
 input ProfileUpsertWithoutUserInput {
@@ -1130,20 +1130,20 @@ input ProfileWhereInput {
   photo_not_starts_with: String
   photo_ends_with: String
   photo_not_ends_with: String
-  timeZone: String
-  timeZone_not: String
-  timeZone_in: [String!]
-  timeZone_not_in: [String!]
-  timeZone_lt: String
-  timeZone_lte: String
-  timeZone_gt: String
-  timeZone_gte: String
-  timeZone_contains: String
-  timeZone_not_contains: String
-  timeZone_starts_with: String
-  timeZone_not_starts_with: String
-  timeZone_ends_with: String
-  timeZone_not_ends_with: String
+  timezone: String
+  timezone_not: String
+  timezone_in: [String!]
+  timezone_not_in: [String!]
+  timezone_lt: String
+  timezone_lte: String
+  timezone_gt: String
+  timezone_gte: String
+  timezone_contains: String
+  timezone_not_contains: String
+  timezone_starts_with: String
+  timezone_not_starts_with: String
+  timezone_ends_with: String
+  timezone_not_ends_with: String
   user: UserWhereInput
   AND: [ProfileWhereInput!]
   OR: [ProfileWhereInput!]

@@ -76,8 +76,8 @@ type Profile {
   location: String
   name: String
   photo: String
-  timeZone: String
-  user: User!
+  timezone: String
+  user: User! @relation(name: "UserProfile")
 }
 
 type User {
@@ -88,7 +88,7 @@ type User {
   password: String!
   pendingEmail: String
   permissions: [Permission]!
-  profile: Profile
+  profile: Profile @relation(name: "UserProfile")
   token: String
   tokenExpiry: Float
   createdAt: DateTime!
