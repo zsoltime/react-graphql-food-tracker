@@ -5,6 +5,7 @@ type Message {
 }
 
 type Mutation {
+  requestReset(email: String!): Message!
   signIn(email: String!, password: String!): User!
   signOut: Message!
   signUp(email: String!, password: String!): User!
