@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`listUsers query lists users 1`] = `
+Array [
+  Object {},
+  "testInfoObject",
+]
+`;
+
+exports[`listUsers query throws error if user does not have permssion 1`] = `"You don't have permission"`;
+
+exports[`listUsers query throws error if user is not logged in 1`] = `"You must be signed in to list users"`;
