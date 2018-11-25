@@ -6,6 +6,7 @@ type Message {
 
 type Mutation {
   requestReset(email: String!): Message!
+  resetPassword(password: String! token: String!)
   signIn(email: String!, password: String!): User!
   signOut: Message!
   signUp(email: String!, password: String!): User!
