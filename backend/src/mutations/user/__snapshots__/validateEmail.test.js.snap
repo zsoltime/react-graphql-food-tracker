@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validateEmail mutation throws error if token is invalid 1`] = `"Token is either invalid or expired"`;
+
+exports[`validateEmail mutation updates user email and returns data 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "email": "newTest@email.io",
+      "pendingEmail": null,
+      "token": null,
+      "tokenExpiry": null,
+    },
+    "where": Object {
+      "email": "test@email.io",
+    },
+  },
+]
+`;
+
+exports[`validateEmail mutation updates user email and returns data 2`] = `
+Object {
+  "email": "newTest@email.io",
+  "id": "testId",
+  "pendingEmail": null,
+  "permissions": Array [
+    "USER",
+  ],
+  "profile": null,
+  "token": null,
+  "tokenExpiry": null,
+}
+`;
