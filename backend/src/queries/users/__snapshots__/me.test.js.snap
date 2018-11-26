@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`me query returns the user data if signed in 1`] = `
+Array [
+  Object {
+    "where": Object {
+      "id": "testUserId",
+    },
+  },
+  "testInfoObject",
+]
+`;
+
+exports[`me query returns the user data if signed in 2`] = `
+Object {
+  "email": "test@email.io",
+  "id": "testId",
+  "permissions": Array [
+    "USER",
+  ],
+  "profile": null,
+}
+`;
