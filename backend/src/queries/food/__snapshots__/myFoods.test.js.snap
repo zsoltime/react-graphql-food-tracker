@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`myFoods query returns all foods added by current user 1`] = `
+Array [
+  Object {
+    "first": 10,
+    "orderBy": "createdAt_DESC",
+    "skip": undefined,
+    "where": Object {
+      "user": Object {
+        "id": "currentUserId",
+      },
+    },
+  },
+]
+`;
+
+exports[`myFoods query returns all foods added by current user 2`] = `
+Array [
+  Object {
+    "name": "FakeFood I",
+  },
+  Object {
+    "name": "FakeFood II",
+  },
+]
+`;
+
+exports[`myFoods query returns mathcing foods if filter is provided 1`] = `
+Array [
+  Object {
+    "first": 10,
+    "orderBy": "createdAt_DESC",
+    "skip": undefined,
+    "where": Object {
+      "AND": Array [
+        Object {
+          "OR": Array [
+            Object {
+              "brand_contains": "peanut",
+            },
+            Object {
+              "name_contains": "peanut",
+            },
+          ],
+        },
+        Object {
+          "user": Object {
+            "id": "currentUserId",
+          },
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`myFoods query returns mathcing foods if filter is provided 2`] = `
+Array [
+  Object {
+    "name": "Salted peanuts",
+  },
+]
+`;
+
+exports[`myFoods query throws error if user is not signed in 1`] = `"You must be signed in to list foods"`;

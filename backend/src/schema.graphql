@@ -44,13 +44,19 @@ type Mutation {
 type Query {
   listUsers: [User]!
   me: User
+  myFoods(
+    filter: String
+    first: Int
+    orderBy: FoodOrderByInput
+    skip: Int
+  ): [Food!]!
   user(id: ID!): User
 }
 
 type User {
   id: ID!
   email: String!
-  foods: [Food]!
+  foods: [Food!]!
   logs: [Log]!
   permissions: [Permission]!
   profile: Profile
