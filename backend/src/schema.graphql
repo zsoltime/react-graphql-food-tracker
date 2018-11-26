@@ -28,3 +28,12 @@ type Query {
   me: User
   user(id: ID!): User
 }
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  foods: [Food]!
+  logs: [Log]!
+  permissions: [Permission]!
+  profile: Profile @relation(name: "UserProfile")
+}
