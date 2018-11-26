@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signIn mutation happy path signs user in 1`] = `
+Array [
+  "token",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ0ZXN0SWQiLCJpYXQiOjE1NDMyNDE2MDZ9.pvuxlFHMguOedl_DDC8bYZqTW7Bjku-xTiKDEryuiws",
+  Object {
+    "httpOnly": true,
+    "maxAge": 7776000000,
+    "secure": false,
+  },
+]
+`;
+
+exports[`signIn mutation happy path signs user in 2`] = `
+Object {
+  "email": "test@email.io",
+  "id": "testId",
+  "pendingEmail": null,
+  "permissions": Array [
+    "USER",
+  ],
+  "profile": null,
+}
+`;

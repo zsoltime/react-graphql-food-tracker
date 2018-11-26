@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`upsertProfile mutation creates profile if user has none 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "height": 198,
+      "name": "Zsolt",
+      "user": Object {
+        "connect": Object {
+          "id": "testUserId",
+        },
+      },
+    },
+  },
+  undefined,
+]
+`;
+
+exports[`upsertProfile mutation throws error if user is not logged in 1`] = `"You must be signed in to update your profile"`;
+
+exports[`upsertProfile mutation updates profile if user has one 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "height": 198,
+      "name": "Zsolt",
+    },
+    "where": Object {
+      "id": "testProfileId",
+    },
+  },
+  undefined,
+]
+`;

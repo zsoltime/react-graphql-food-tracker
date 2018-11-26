@@ -1,0 +1,39 @@
+# import * from './generated/prisma.graphql'
+
+type Message {
+  message: String!
+}
+
+type Mutation {
+  requestReset(email: String!): Message!
+  resetPassword(password: String!, token: String!): User!
+  signIn(email: String!, password: String!): User!
+  signOut: Message!
+  signUp(email: String!, password: String!): User!
+  updateEmail(email: String!): Message!
+  upsertProfile(
+    dateOfBirth: DateTime
+    gender: Gender
+    height: Int
+    location: String
+    name: String
+    photo: String
+    timezone: String
+  ): Profile!
+  validateEmail(token: String!): User!
+}
+
+type Query {
+  listUsers: [User]!
+  me: User
+  user(id: ID!): User
+}
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  foods: [Food]!
+  logs: [Log]!
+  permissions: [Permission]!
+  profile: Profile @relation(name: "UserProfile")
+}

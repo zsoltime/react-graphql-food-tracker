@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`requestReset mutation throws error if email address is not found in database 1`] = `"Email address not found. You may have entered your email address incorrectly."`;
+
+exports[`requestReset mutation throws error if email is invalid 1`] = `"Email address is invalid"`;
+
+exports[`requestReset mutation updates user with generated token and sends email 1`] = `
+Object {
+  "message": "Email with token sent",
+}
+`;

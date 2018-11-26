@@ -4,6 +4,12 @@ enum Gender {
   OTHER
 }
 
+enum Permission {
+  ADMIN
+  PRO_USER
+  USER
+}
+
 enum Unit {
   CUP
   G
@@ -70,17 +76,21 @@ type Profile {
   location: String
   name: String
   photo: String
-  timeZone: String
-  user: User!
+  timezone: String
+  user: User! @relation(name: "UserProfile")
 }
 
 type User {
   id: ID! @unique
   email: String! @unique
-  foods: [Food!]!
-  logs: [Log!]!
+  foods: [Food]!
+  logs: [Log]!
   password: String!
-  profile: Profile
+  pendingEmail: String
+  permissions: [Permission]!
+  profile: Profile @relation(name: "UserProfile")
+  token: String
+  tokenExpiry: Float
   createdAt: DateTime!
   updatedAt: DateTime!
 }

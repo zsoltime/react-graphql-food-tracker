@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signUp mutation creates user and logs in 1`] = `
+Array [
+  "token",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ0ZXN0SWQiLCJpYXQiOjE1NDMyNDE2MDZ9.pvuxlFHMguOedl_DDC8bYZqTW7Bjku-xTiKDEryuiws",
+  Object {
+    "httpOnly": true,
+    "maxAge": 7776000000,
+    "secure": false,
+  },
+]
+`;
+
+exports[`signUp mutation creates user and logs in 2`] = `
+Object {
+  "email": "test@email.io",
+  "id": "testId",
+  "pendingEmail": null,
+  "permissions": Array [
+    "USER",
+  ],
+  "profile": null,
+}
+`;
+
+exports[`signUp mutation throws error if email is already in use 1`] = `"Email is already in use"`;
+
+exports[`signUp mutation throws error if email is invalid 1`] = `"Email is not valid"`;
+
+exports[`signUp mutation throws error if password is invalid 1`] = `"Password must be at least 8 characters"`;

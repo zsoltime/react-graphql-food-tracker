@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`updateEmail mutation sets user a pending email and returns a message 1`] = `
+Object {
+  "message": "Email with token sent",
+}
+`;
+
+exports[`updateEmail mutation sets user a pending email and returns a message 2`] = `
+Array [
+  Object {
+    "where": Object {
+      "email": "test@email.io",
+    },
+  },
+]
+`;
+
+exports[`updateEmail mutation throws error if email is already in use 1`] = `"Another user is already using this email"`;
+
+exports[`updateEmail mutation throws error if email is invalid 1`] = `"Email is not valid"`;
+
+exports[`updateEmail mutation throws error if user not signed in 1`] = `"You must be signed in to update your email address"`;
