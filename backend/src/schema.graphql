@@ -42,6 +42,12 @@ type Mutation {
 }
 
 type Query {
+  foods(
+    first: Int
+    orderBy: FoodOrderByInput
+    skip: Int
+    where: FoodWhereInput
+  ): [Food!]!
   listUsers: [User]!
   me: User
   myFoods(
