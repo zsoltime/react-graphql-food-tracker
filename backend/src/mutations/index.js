@@ -1,5 +1,6 @@
 'use strict';
 
+const addFood = require('./food/addFood');
 const requestReset = require('./user/requestReset');
 const resetPassword = require('./user/resetPassword');
 const signIn = require('./user/signIn');
@@ -10,6 +11,7 @@ const upsertProfile = require('./user/upsertProfile');
 const validateEmail = require('./user/validateEmail');
 
 module.exports = {
+  addFood,
   requestReset,
   resetPassword,
   signIn,
