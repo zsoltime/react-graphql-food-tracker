@@ -1,13 +1,16 @@
 'use strict';
 
-const bcryptjs = {};
+const bcrypt = {};
 
 let result = true;
 
-bcryptjs.setMockResult = (newMockResult) => {
+bcrypt.setMockResult = (newMockResult) => {
   result = newMockResult;
 };
 
-bcryptjs.compare = () => Promise.resolve(result);
+bcrypt.compare = () => Promise.resolve(result);
+bcrypt.hash = () => Promise.resolve(
+  '$2y$12$ojbf3vJgxk.0q617vyZF8uge/KgjM9biFF9l.OFjqkbnouZPNkEdy'
+);
 
-module.exports = bcryptjs;
+module.exports = bcrypt;
