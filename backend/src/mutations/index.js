@@ -10,6 +10,7 @@ const updateFood = require('./food/updateFood');
 const updateEmail = require('./user/updateEmail');
 const upsertProfile = require('./user/upsertProfile');
 const validateEmail = require('./user/validateEmail');
+const verifyFood = require('./food/verifyFood');
 
 module.exports = {
   addFood,
@@ -22,4 +23,5 @@ module.exports = {
   updateFood,
   upsertProfile,
   validateEmail,
+  verifyFood,
 };

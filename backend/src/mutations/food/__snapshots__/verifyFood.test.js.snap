@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`verifyFood mutation throws error if user has no permission 1`] = `"You don't have permission to verify foods"`;
+
+exports[`verifyFood mutation updates food's verification status 1`] = `
+Object {
+  "id": "validFoodId",
+  "name": "Fake food",
+  "verifiedAt": "2018-11-27T01:19:40.270Z",
+}
+`;

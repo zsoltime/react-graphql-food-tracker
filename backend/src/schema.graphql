@@ -58,6 +58,7 @@ type Mutation {
     timezone: String
   ): Profile!
   validateEmail(token: String!): User!
+  verifyFood(id: ID!): Food!
 }
 
 type Query {
