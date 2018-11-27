@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addFood mutation inserts food to the database and returns it 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "brand": "Meridian",
+      "calories": 596,
+      "carb": 11.6,
+      "ean": "5060132283424",
+      "fat": 46,
+      "fatSaturated": 8.2,
+      "fibre": 8.5,
+      "name": "Crunchy peanut butter",
+      "protein": 29.6,
+      "servingSize": 100,
+      "servingUnit": "G",
+      "sugar": 5.9,
+      "user": Object {
+        "connect": Object {
+          "id": "validUserId",
+        },
+      },
+    },
+  },
+  "mockedInfoObject",
+]
+`;
+
+exports[`addFood mutation inserts food to the database and returns it 2`] = `
+Object {
+  "brand": "Meridian",
+  "calories": 596,
+  "carb": 11.6,
+  "ean": "5060132283424",
+  "fat": 46,
+  "fatSaturated": 8.2,
+  "fibre": 8.5,
+  "name": "Crunchy peanut butter",
+  "protein": 29.6,
+  "servingSize": 100,
+  "servingUnit": "G",
+  "sugar": 5.9,
+  "user": "validUserId",
+}
+`;
+
+exports[`addFood mutation throws error if user not signed in 1`] = `"You must be signed in to add foods"`;

@@ -5,6 +5,43 @@ type Message {
 }
 
 type Mutation {
+  addFood(
+    brand: String!
+    calories: Int!
+    carb: Float!
+    ean: String
+    fat: Float!
+    fatMonounsaturated: Float
+    fatPolyunsaturated: Float
+    fatSaturated: Float
+    fatTrans: Float
+    fibre: Float
+    name: String!
+    polyol: Float
+    protein: Float!
+    servingSize: Int!
+    servingUnit: Unit!
+    sugar: Float
+  ): Food!
+  updateFood(
+    id: ID!
+    brand: String
+    calories: Int
+    carb: Float
+    ean: String
+    fat: Float
+    fatMonounsaturated: Float
+    fatPolyunsaturated: Float
+    fatSaturated: Float
+    fatTrans: Float
+    fibre: Float
+    name: String
+    polyol: Float
+    protein: Float
+    servingSize: Int
+    servingUnit: Unit
+    sugar: Float
+  ): Food!
   requestReset(email: String!): Message!
   resetPassword(password: String!, token: String!): User!
   signIn(email: String!, password: String!): User!
@@ -21,19 +58,32 @@ type Mutation {
     timezone: String
   ): Profile!
   validateEmail(token: String!): User!
+  verifyFood(id: ID!): Food!
 }
 
 type Query {
+  foods(
+    first: Int
+    orderBy: FoodOrderByInput
+    skip: Int
+    where: FoodWhereInput
+  ): [Food!]!
   listUsers: [User]!
   me: User
+  myFoods(
+    filter: String
+    first: Int
+    orderBy: FoodOrderByInput
+    skip: Int
+  ): [Food!]!
   user(id: ID!): User
 }
 
 type User {
-  id: ID! @unique
-  email: String! @unique
-  foods: [Food]!
+  id: ID!
+  email: String!
+  foods: [Food!]!
   logs: [Log]!
   permissions: [Permission]!
-  profile: Profile @relation(name: "UserProfile")
+  profile: Profile
 }

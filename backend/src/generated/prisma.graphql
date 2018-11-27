@@ -33,18 +33,17 @@ type Food {
   brand: String!
   calories: Int!
   carb: Float!
-  ean: Int
+  ean: String
   fat: Float!
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean!
   name: String!
   polyol: Float
   protein: Float!
-  servingSize: Int
+  servingSize: Int!
   servingUnit: Unit!
   sugar: Float
   user: User!
@@ -63,18 +62,17 @@ input FoodCreateInput {
   brand: String!
   calories: Int!
   carb: Float!
-  ean: Int
+  ean: String
   fat: Float!
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean
   name: String!
   polyol: Float
   protein: Float!
-  servingSize: Int
+  servingSize: Int!
   servingUnit: Unit!
   sugar: Float
   user: UserCreateOneWithoutFoodsInput!
@@ -95,18 +93,17 @@ input FoodCreateWithoutUserInput {
   brand: String!
   calories: Int!
   carb: Float!
-  ean: Int
+  ean: String
   fat: Float!
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean
   name: String!
   polyol: Float
   protein: Float!
-  servingSize: Int
+  servingSize: Int!
   servingUnit: Unit!
   sugar: Float
   verifiedAt: DateTime
@@ -140,8 +137,6 @@ enum FoodOrderByInput {
   fatTrans_DESC
   fibre_ASC
   fibre_DESC
-  isVerified_ASC
-  isVerified_DESC
   name_ASC
   name_DESC
   polyol_ASC
@@ -167,18 +162,17 @@ type FoodPreviousValues {
   brand: String!
   calories: Int!
   carb: Float!
-  ean: Int
+  ean: String
   fat: Float!
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean!
   name: String!
   polyol: Float
   protein: Float!
-  servingSize: Int
+  servingSize: Int!
   servingUnit: Unit!
   sugar: Float
   createdAt: DateTime!
@@ -208,14 +202,13 @@ input FoodUpdateDataInput {
   brand: String
   calories: Int
   carb: Float
-  ean: Int
+  ean: String
   fat: Float
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean
   name: String
   polyol: Float
   protein: Float
@@ -230,14 +223,13 @@ input FoodUpdateInput {
   brand: String
   calories: Int
   carb: Float
-  ean: Int
+  ean: String
   fat: Float
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean
   name: String
   polyol: Float
   protein: Float
@@ -252,14 +244,13 @@ input FoodUpdateManyMutationInput {
   brand: String
   calories: Int
   carb: Float
-  ean: Int
+  ean: String
   fat: Float
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean
   name: String
   polyol: Float
   protein: Float
@@ -289,14 +280,13 @@ input FoodUpdateWithoutUserDataInput {
   brand: String
   calories: Int
   carb: Float
-  ean: Int
+  ean: String
   fat: Float
   fatMonounsaturated: Float
   fatPolyunsaturated: Float
   fatSaturated: Float
   fatTrans: Float
   fibre: Float
-  isVerified: Boolean
   name: String
   polyol: Float
   protein: Float
@@ -367,14 +357,20 @@ input FoodWhereInput {
   carb_lte: Float
   carb_gt: Float
   carb_gte: Float
-  ean: Int
-  ean_not: Int
-  ean_in: [Int!]
-  ean_not_in: [Int!]
-  ean_lt: Int
-  ean_lte: Int
-  ean_gt: Int
-  ean_gte: Int
+  ean: String
+  ean_not: String
+  ean_in: [String!]
+  ean_not_in: [String!]
+  ean_lt: String
+  ean_lte: String
+  ean_gt: String
+  ean_gte: String
+  ean_contains: String
+  ean_not_contains: String
+  ean_starts_with: String
+  ean_not_starts_with: String
+  ean_ends_with: String
+  ean_not_ends_with: String
   fat: Float
   fat_not: Float
   fat_in: [Float!]
@@ -423,8 +419,6 @@ input FoodWhereInput {
   fibre_lte: Float
   fibre_gt: Float
   fibre_gte: Float
-  isVerified: Boolean
-  isVerified_not: Boolean
   name: String
   name_not: String
   name_in: [String!]
