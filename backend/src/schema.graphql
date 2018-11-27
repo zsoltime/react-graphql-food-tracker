@@ -23,6 +23,25 @@ type Mutation {
     servingUnit: Unit!
     sugar: Float
   ): Food!
+  updateFood(
+    id: ID!
+    brand: String
+    calories: Int
+    carb: Float
+    ean: String
+    fat: Float
+    fatMonounsaturated: Float
+    fatPolyunsaturated: Float
+    fatSaturated: Float
+    fatTrans: Float
+    fibre: Float
+    name: String
+    polyol: Float
+    protein: Float
+    servingSize: Int
+    servingUnit: Unit
+    sugar: Float
+  ): Food!
   requestReset(email: String!): Message!
   resetPassword(password: String!, token: String!): User!
   signIn(email: String!, password: String!): User!

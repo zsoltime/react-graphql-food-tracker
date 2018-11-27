@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`udpateFood mutation throws error if user does not have permission 1`] = `"You don't have permission to update this food"`;
+
+exports[`udpateFood mutation throws error if user is not signed in 1`] = `"You must be signed in to update foods"`;
+
+exports[`udpateFood mutation updates the food item 1`] = `
+Array [
+  Object {
+    "where": Object {
+      "AND": Array [
+        Object {
+          "foods_some": Object {
+            "id": "validFoodId",
+          },
+          "id": "validUserId",
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`udpateFood mutation updates the food item 2`] = `
+Array [
+  Object {
+    "data": Object {
+      "calories": 596,
+      "carb": 11.6,
+      "fat": 46,
+      "protein": 29.6,
+      "sugar": 5.9,
+    },
+    "where": Object {
+      "id": "validFoodId",
+    },
+  },
+]
+`;
+
+exports[`udpateFood mutation updates the food item 3`] = `
+Object {
+  "brand": "Meridian",
+  "calories": 596,
+  "carb": 11.6,
+  "fat": 46,
+  "id": "validFoodId",
+  "name": "Crunchy peanut butter",
+  "protein": 29.6,
+  "sugar": 5.9,
+  "user": "validUserId",
+}
+`;

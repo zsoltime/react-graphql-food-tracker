@@ -6,6 +6,7 @@ const resetPassword = require('./user/resetPassword');
 const signIn = require('./user/signIn');
 const signOut = require('./user/signOut');
 const signUp = require('./user/signUp');
+const updateFood = require('./food/updateFood');
 const updateEmail = require('./user/updateEmail');
 const upsertProfile = require('./user/upsertProfile');
 const validateEmail = require('./user/validateEmail');
@@ -18,6 +19,7 @@ module.exports = {
   signOut,
   signUp,
   updateEmail,
+  updateFood,
   upsertProfile,
   validateEmail,
 };
