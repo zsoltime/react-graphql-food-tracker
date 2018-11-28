@@ -90,12 +90,15 @@ type User {
   profile: Profile @relation(name: "UserProfile")
   token: String
   tokenExpiry: Float
+  weightLogs: [WeightLog]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 
 type WeightLog {
   id: ID! @unique
+  date: DateTime!
+  image: String
   user: User!
   weight: Float!
   createdAt: DateTime!

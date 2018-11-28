@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addWeight mutation inserts weight to the database 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "date": "2018-11-28",
+      "image": "https://images.unsplash.com/photo-1506061697648-9ffed5394573?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ed4f2398f9beb723c7a73a6fd37eeb7f&auto=format&fit=crop&w=2600&q=80",
+      "user": Object {
+        "connect": Object {
+          "id": "validUserId",
+        },
+      },
+      "weight": 92.1,
+    },
+  },
+]
+`;
+
+exports[`addWeight mutation inserts weight to the database 2`] = `
+Object {
+  "date": 2018-11-28T00:00:00.000Z,
+  "image": "https://images.unsplash.com/photo-1506061697648-9ffed5394573?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ed4f2398f9beb723c7a73a6fd37eeb7f&auto=format&fit=crop&w=2600&q=80",
+  "weight": 92.1,
+}
+`;
+
+exports[`addWeight mutation throws error if user is not signed in 1`] = `"You must be signed in to add your weight"`;

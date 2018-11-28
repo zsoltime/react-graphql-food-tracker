@@ -23,6 +23,7 @@ type Mutation {
     servingUnit: Unit!
     sugar: Float
   ): Food!
+  addWeight(date: DateTime, image: String, weight: Float!): WeightLog!
   updateFood(
     id: ID!
     brand: String
@@ -86,4 +87,11 @@ type User {
   logs: [Log]!
   permissions: [Permission]!
   profile: Profile
+}
+
+type WeightLog {
+  id: ID!
+  date: DateTime!
+  image: String
+  weight: Float!
 }

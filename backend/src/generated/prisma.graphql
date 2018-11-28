@@ -1203,6 +1203,7 @@ type User {
   profile: Profile
   token: String
   tokenExpiry: Float
+  weightLogs(where: WeightLogWhereInput, orderBy: WeightLogOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WeightLog!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -1223,6 +1224,7 @@ input UserCreateInput {
   profile: ProfileCreateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogCreateManyWithoutUserInput
 }
 
 input UserCreateOneInput {
@@ -1245,6 +1247,11 @@ input UserCreateOneWithoutProfileInput {
   connect: UserWhereUniqueInput
 }
 
+input UserCreateOneWithoutWeightLogsInput {
+  create: UserCreateWithoutWeightLogsInput
+  connect: UserWhereUniqueInput
+}
+
 input UserCreatepermissionsInput {
   set: [Permission!]
 }
@@ -1258,6 +1265,7 @@ input UserCreateWithoutFoodsInput {
   profile: ProfileCreateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogCreateManyWithoutUserInput
 }
 
 input UserCreateWithoutLogsInput {
@@ -1269,6 +1277,7 @@ input UserCreateWithoutLogsInput {
   profile: ProfileCreateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogCreateManyWithoutUserInput
 }
 
 input UserCreateWithoutProfileInput {
@@ -1278,6 +1287,19 @@ input UserCreateWithoutProfileInput {
   password: String!
   pendingEmail: String
   permissions: UserCreatepermissionsInput
+  token: String
+  tokenExpiry: Float
+  weightLogs: WeightLogCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutWeightLogsInput {
+  email: String!
+  foods: FoodCreateManyWithoutUserInput
+  logs: LogCreateManyWithoutUserInput
+  password: String!
+  pendingEmail: String
+  permissions: UserCreatepermissionsInput
+  profile: ProfileCreateOneWithoutUserInput
   token: String
   tokenExpiry: Float
 }
@@ -1346,6 +1368,7 @@ input UserUpdateDataInput {
   profile: ProfileUpdateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogUpdateManyWithoutUserInput
 }
 
 input UserUpdateInput {
@@ -1358,6 +1381,7 @@ input UserUpdateInput {
   profile: ProfileUpdateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogUpdateManyWithoutUserInput
 }
 
 input UserUpdateManyMutationInput {
@@ -1397,6 +1421,13 @@ input UserUpdateOneRequiredWithoutProfileInput {
   connect: UserWhereUniqueInput
 }
 
+input UserUpdateOneRequiredWithoutWeightLogsInput {
+  create: UserCreateWithoutWeightLogsInput
+  update: UserUpdateWithoutWeightLogsDataInput
+  upsert: UserUpsertWithoutWeightLogsInput
+  connect: UserWhereUniqueInput
+}
+
 input UserUpdatepermissionsInput {
   set: [Permission!]
 }
@@ -1410,6 +1441,7 @@ input UserUpdateWithoutFoodsDataInput {
   profile: ProfileUpdateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogUpdateManyWithoutUserInput
 }
 
 input UserUpdateWithoutLogsDataInput {
@@ -1421,6 +1453,7 @@ input UserUpdateWithoutLogsDataInput {
   profile: ProfileUpdateOneWithoutUserInput
   token: String
   tokenExpiry: Float
+  weightLogs: WeightLogUpdateManyWithoutUserInput
 }
 
 input UserUpdateWithoutProfileDataInput {
@@ -1430,6 +1463,19 @@ input UserUpdateWithoutProfileDataInput {
   password: String
   pendingEmail: String
   permissions: UserUpdatepermissionsInput
+  token: String
+  tokenExpiry: Float
+  weightLogs: WeightLogUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutWeightLogsDataInput {
+  email: String
+  foods: FoodUpdateManyWithoutUserInput
+  logs: LogUpdateManyWithoutUserInput
+  password: String
+  pendingEmail: String
+  permissions: UserUpdatepermissionsInput
+  profile: ProfileUpdateOneWithoutUserInput
   token: String
   tokenExpiry: Float
 }
@@ -1452,6 +1498,11 @@ input UserUpsertWithoutLogsInput {
 input UserUpsertWithoutProfileInput {
   update: UserUpdateWithoutProfileDataInput!
   create: UserCreateWithoutProfileInput!
+}
+
+input UserUpsertWithoutWeightLogsInput {
+  update: UserUpdateWithoutWeightLogsDataInput!
+  create: UserCreateWithoutWeightLogsInput!
 }
 
 input UserWhereInput {
@@ -1540,6 +1591,9 @@ input UserWhereInput {
   tokenExpiry_lte: Float
   tokenExpiry_gt: Float
   tokenExpiry_gte: Float
+  weightLogs_every: WeightLogWhereInput
+  weightLogs_some: WeightLogWhereInput
+  weightLogs_none: WeightLogWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1568,6 +1622,8 @@ input UserWhereUniqueInput {
 
 type WeightLog {
   id: ID!
+  date: DateTime!
+  image: String
   user: User!
   weight: Float!
   createdAt: DateTime!
@@ -1581,7 +1637,20 @@ type WeightLogConnection {
 }
 
 input WeightLogCreateInput {
-  user: UserCreateOneInput!
+  date: DateTime!
+  image: String
+  user: UserCreateOneWithoutWeightLogsInput!
+  weight: Float!
+}
+
+input WeightLogCreateManyWithoutUserInput {
+  create: [WeightLogCreateWithoutUserInput!]
+  connect: [WeightLogWhereUniqueInput!]
+}
+
+input WeightLogCreateWithoutUserInput {
+  date: DateTime!
+  image: String
   weight: Float!
 }
 
@@ -1593,6 +1662,10 @@ type WeightLogEdge {
 enum WeightLogOrderByInput {
   id_ASC
   id_DESC
+  date_ASC
+  date_DESC
+  image_ASC
+  image_DESC
   weight_ASC
   weight_DESC
   createdAt_ASC
@@ -1603,6 +1676,8 @@ enum WeightLogOrderByInput {
 
 type WeightLogPreviousValues {
   id: ID!
+  date: DateTime!
+  image: String
   weight: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1627,12 +1702,42 @@ input WeightLogSubscriptionWhereInput {
 }
 
 input WeightLogUpdateInput {
-  user: UserUpdateOneRequiredInput
+  date: DateTime
+  image: String
+  user: UserUpdateOneRequiredWithoutWeightLogsInput
   weight: Float
 }
 
 input WeightLogUpdateManyMutationInput {
+  date: DateTime
+  image: String
   weight: Float
+}
+
+input WeightLogUpdateManyWithoutUserInput {
+  create: [WeightLogCreateWithoutUserInput!]
+  delete: [WeightLogWhereUniqueInput!]
+  connect: [WeightLogWhereUniqueInput!]
+  disconnect: [WeightLogWhereUniqueInput!]
+  update: [WeightLogUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [WeightLogUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input WeightLogUpdateWithoutUserDataInput {
+  date: DateTime
+  image: String
+  weight: Float
+}
+
+input WeightLogUpdateWithWhereUniqueWithoutUserInput {
+  where: WeightLogWhereUniqueInput!
+  data: WeightLogUpdateWithoutUserDataInput!
+}
+
+input WeightLogUpsertWithWhereUniqueWithoutUserInput {
+  where: WeightLogWhereUniqueInput!
+  update: WeightLogUpdateWithoutUserDataInput!
+  create: WeightLogCreateWithoutUserInput!
 }
 
 input WeightLogWhereInput {
@@ -1650,6 +1755,28 @@ input WeightLogWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  date: DateTime
+  date_not: DateTime
+  date_in: [DateTime!]
+  date_not_in: [DateTime!]
+  date_lt: DateTime
+  date_lte: DateTime
+  date_gt: DateTime
+  date_gte: DateTime
+  image: String
+  image_not: String
+  image_in: [String!]
+  image_not_in: [String!]
+  image_lt: String
+  image_lte: String
+  image_gt: String
+  image_gte: String
+  image_contains: String
+  image_not_contains: String
+  image_starts_with: String
+  image_not_starts_with: String
+  image_ends_with: String
+  image_not_ends_with: String
   user: UserWhereInput
   weight: Float
   weight_not: Float
