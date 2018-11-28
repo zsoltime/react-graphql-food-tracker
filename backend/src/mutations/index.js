@@ -8,6 +8,7 @@ const signIn = require('./user/signIn');
 const signOut = require('./user/signOut');
 const signUp = require('./user/signUp');
 const updateFood = require('./food/updateFood');
+const updateWeight = require('./weightlog/updateWeight');
 const updateEmail = require('./user/updateEmail');
 const upsertProfile = require('./user/upsertProfile');
 const validateEmail = require('./user/validateEmail');
@@ -23,6 +24,7 @@ module.exports = {
   signUp,
   updateEmail,
   updateFood,
+  updateWeight,
   upsertProfile,
   validateEmail,
   verifyFood,

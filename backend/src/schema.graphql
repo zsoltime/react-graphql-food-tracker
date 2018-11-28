@@ -24,6 +24,12 @@ type Mutation {
     sugar: Float
   ): Food!
   addWeight(date: DateTime, image: String, weight: Float!): WeightLog!
+  requestReset(email: String!): Message!
+  resetPassword(password: String!, token: String!): User!
+  signIn(email: String!, password: String!): User!
+  signOut: Message!
+  signUp(email: String!, password: String!): User!
+  updateEmail(email: String!): Message!
   updateFood(
     id: ID!
     brand: String
@@ -43,12 +49,12 @@ type Mutation {
     servingUnit: Unit
     sugar: Float
   ): Food!
-  requestReset(email: String!): Message!
-  resetPassword(password: String!, token: String!): User!
-  signIn(email: String!, password: String!): User!
-  signOut: Message!
-  signUp(email: String!, password: String!): User!
-  updateEmail(email: String!): Message!
+  updateWeight(
+    id: ID!
+    date: DateTime
+    image: String
+    weight: Float
+  ): WeightLog!
   upsertProfile(
     dateOfBirth: DateTime
     gender: Gender

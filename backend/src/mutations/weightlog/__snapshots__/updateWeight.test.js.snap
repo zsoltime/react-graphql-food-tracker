@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`updateWeight mutation throws error if user is not signed in 1`] = `"You must be signed in to update your weight"`;
+
+exports[`updateWeight mutation updates the weight log fields 1`] = `
+Array [
+  Object {
+    "where": Object {
+      "AND": Array [
+        Object {
+          "id": "validUserId",
+          "weightLogs_some": Object {
+            "id": "validFoodId",
+          },
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`updateWeight mutation updates the weight log fields 2`] = `
+Array [
+  Object {
+    "data": Object {
+      "date": "2018-11-20",
+      "weight": 88.8,
+    },
+    "where": Object {
+      "id": "validFoodId",
+    },
+  },
+]
+`;
+
+exports[`updateWeight mutation updates the weight log fields 3`] = `
+Object {
+  "date": "2018-11-20",
+  "id": "validFoodId",
+  "image": null,
+  "weight": 88.8,
+}
+`;
