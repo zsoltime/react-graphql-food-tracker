@@ -24,6 +24,7 @@ type Mutation {
     sugar: Float
   ): Food!
   addWeight(date: DateTime, image: String, weight: Float!): WeightLog!
+  deleteWeight(id: ID!): WeightLog!
   requestReset(email: String!): Message!
   resetPassword(password: String!, token: String!): User!
   signIn(email: String!, password: String!): User!
@@ -93,6 +94,7 @@ type User {
   logs: [Log]!
   permissions: [Permission]!
   profile: Profile
+  weightLogs: [WeightLog]!
 }
 
 type WeightLog {

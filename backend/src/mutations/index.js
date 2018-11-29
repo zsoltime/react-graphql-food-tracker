@@ -2,6 +2,7 @@
 
 const addFood = require('./food/addFood');
 const addWeight = require('./weightlog/addWeight');
+const deleteWeight = require('./weightlog/deleteWeight');
 const requestReset = require('./user/requestReset');
 const resetPassword = require('./user/resetPassword');
 const signIn = require('./user/signIn');
@@ -17,6 +18,7 @@ const verifyFood = require('./food/verifyFood');
 module.exports = {
   addFood,
   addWeight,
+  deleteWeight,
   requestReset,
   resetPassword,
   signIn,

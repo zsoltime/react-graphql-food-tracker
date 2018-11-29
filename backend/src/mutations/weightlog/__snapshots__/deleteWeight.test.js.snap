@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`deleteWeight mutation deletes and returns the weightLog entry 1`] = `
+Array [
+  Object {
+    "where": Object {
+      "AND": Array [
+        Object {
+          "id": "validUserId",
+          "weightLogs_some": Object {
+            "id": "validFoodId",
+          },
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`deleteWeight mutation deletes and returns the weightLog entry 2`] = `
+Array [
+  Object {
+    "where": Object {
+      "id": "validFoodId",
+    },
+  },
+]
+`;
+
+exports[`deleteWeight mutation deletes and returns the weightLog entry 3`] = `
+Object {
+  "date": 2018-11-20T00:00:00.000Z,
+  "id": "validFoodId",
+  "image": null,
+  "weight": 88.8,
+}
+`;
+
+exports[`deleteWeight mutation throws error if ID is not valid 1`] = `"You don't have permission to delete this entry"`;
+
+exports[`deleteWeight mutation throws error if user is not signed in 1`] = `"You must be signed in to delete this entry"`;
