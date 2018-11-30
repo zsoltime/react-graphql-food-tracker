@@ -19,7 +19,7 @@ type Mutation {
     name: String!
     polyol: Float
     protein: Float!
-    servingSize: Int!
+    servingSize: Float!
     servingUnit: Unit!
     sugar: Float
   ): Food!
@@ -46,7 +46,7 @@ type Mutation {
     name: String
     polyol: Float
     protein: Float
-    servingSize: Int
+    servingSize: Float
     servingUnit: Unit
     sugar: Float
   ): Food!
@@ -89,9 +89,9 @@ type Query {
 
 type User {
   id: ID!
+  diary: [FoodItem]!
   email: String!
-  foods: [Food!]!
-  logs: [Log]!
+  foods: [Food]!
   permissions: [Permission]!
   profile: Profile
   weightLogs: [WeightLog]!
