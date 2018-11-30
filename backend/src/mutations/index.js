@@ -1,6 +1,7 @@
 'use strict';
 
 const addFood = require('./food/addFood');
+const addFoodToDiary = require('./diary/addFoodToDiary');
 const addWeight = require('./weightlog/addWeight');
 const deleteWeight = require('./weightlog/deleteWeight');
 const requestReset = require('./user/requestReset');
@@ -17,6 +18,7 @@ const verifyFood = require('./food/verifyFood');
 
 module.exports = {
   addFood,
+  addFoodToDiary,
   addWeight,
   deleteWeight,
   requestReset,

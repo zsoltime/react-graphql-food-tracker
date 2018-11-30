@@ -23,6 +23,11 @@ type Mutation {
     servingUnit: Unit!
     sugar: Float
   ): Food!
+  addFoodToDiary(
+    id: ID!
+    servingSize: Float!
+    servingUnit: Unit!
+  ): FoodItem!
   addWeight(date: DateTime, image: String, weight: Float!): WeightLog!
   deleteWeight(id: ID!): WeightLog!
   requestReset(email: String!): Message!

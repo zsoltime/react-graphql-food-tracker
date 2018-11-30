@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addFoodToDiary mutation throws error if food ID is not valid 1`] = `
+Array [
+  Object {
+    "where": Object {
+      "id": "invalidFoodId",
+    },
+  },
+]
+`;
+
+exports[`addFoodToDiary mutation throws error if food ID is not valid 2`] = `"Food doesn't exist"`;
+
+exports[`addFoodToDiary mutation throws error if user not signed in 1`] = `"You must be signed in to log food"`;
